@@ -1,6 +1,6 @@
-firstly run `docker-compose up`, configure the docker-compose.yml according to you architecture, this repo is a arm64 version.
+firstly run `docker-compose up`, configure the docker-compose.yml according to you architecture, this repo is an arm64 version.
 
-10.0.2.6 10.0.2.7 are clients，10.0.2.8 is the router，LAN contains two host named 192.168.60.101 192.168.60.102
+10.0.2.6 10.0.2.7 are clients，10.0.2.8 is the router，LAN contains two hosts named 192.168.60.101 192.168.60.102
 
 if the images contain no gcc libssl vim, remember to apt-get them
 
