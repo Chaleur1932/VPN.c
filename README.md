@@ -1,12 +1,17 @@
-# SeedLabVPNLab
-SeedLabVPNLab
-首先启动docker，10.0.2.6 10.0.2.7是客户端，10.0.2.8是连接局域网的路由器，局域网中有两个主机192.168.60.101 192.168.60.102
+firstly run `docker-compose up`, configure the docker-compose.yml according to you architecture, this repo is a arm64 version.
 
-其次完成证书的生成，以及本地DNS配置
-接下来
-客户端：
-./vpnclient seed dees 虚拟网卡声称的ip，每个客户端不一样的ip
-服务端
-./vpnserver 
+10.0.2.6 10.0.2.7 are clients，10.0.2.8 is the router，LAN contains two host named 192.168.60.101 192.168.60.102
 
-从客户端可以访问到局域网
+if the images contain no gcc libssl vim, remember to apt-get them
+
+generate the certs separately for server and client in ./cert_server & ./ca_client
+
+change the code in client, make CA check from PEER to NONE
+
+`gcc -o vpnclient/server client.c/server.c -lssl -lcrypto -lcrypt`
+
+run `./vpnclient seed dees 192.168.78.xx`，this IP for tun0 can be arbitrarily assigned
+
+run `./vpnserver`
+
+`ping 192.168.60.xx` is available
